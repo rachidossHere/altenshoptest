@@ -1,0 +1,32 @@
+
+.container {
+    max-width: 800px;
+}
+
+h2 {
+    color: #ffc107;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+.form-control {
+    border: 1px solid #ffc107;
+    &:focus {
+        border-color: #ffc107;
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+}
+
+.form-control
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    &:hover {
+        background-color: #e0a800;
+        border-color: #e0a800;
+    }
+}

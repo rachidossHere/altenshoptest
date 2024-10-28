@@ -1,0 +1,36 @@
+<!-- <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <div class="navbar-menu">
+        <ul>
+          <li><a [routerLink]="['/home']" routerLinkActive="active-link">Home</a></li>
+          <li><a [routerLink]="['/products']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: false }">Products</a></li>
+          <li><a [routerLink]="['/cart']" routerLinkActive="active-link">Cart</a></li>
+        </ul>
+      </div>
+      <div class="navbar-contact">
+        <a [routerLink]="['/contact']" routerLinkActive="active-link">Contact</a>
+      </div>
+    </nav>
+  </header> -->
+
+<!-- Menu de navigation -->
+  <!-- Menu de navigation -->
+  <div class="navbar">
+    <div class="navbar-left">
+        <div class="logo">Alten Shop</div>
+        <nav>
+            <ul>
+              <ul>
+                <li><a [routerLink]="['/shop']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: false }">Shop</a></li>
+                <li><a [routerLink]="['/cart']" routerLinkActive="active-link">Panier</a></li>
+              </ul>
+            </ul>
+        </nav>
+    </div>
+    <div class="navbar-right">
+      <a [routerLink]="['/contact']" routerLinkActive="active-link">Contact</a>
+    </div>
+</div>

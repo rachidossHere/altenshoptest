@@ -1,0 +1,24 @@
+    <div class="card text-white bg-dark mb-3 w-100" *ngIf="product">
+        <img [src]="product.image" [alt]="product.name" class="card-img-top" alt="Produit Image">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">{{product.name}}</h5>
+            <span class="badge" [ngClass]="{
+              'bg-danger': product.inventoryStatus === 'OUTOFSTOCK', 
+              'bg-warning text-dark': product.inventoryStatus === 'LOWSTOCK', 
+              'bg-success': product.inventoryStatus === 'INSTOCK'
+          }">
+              {{ getInventoryStatusText(product.inventoryStatus) }}
+          </span>
+            </div>
+            <h6 class="card-subtitle mb-2 text-warning">{{product.price | currency}}</h6>
+            <p class="card-text">{{product.description}}</p>
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+              <div>
+                <label for="quantity" class="form-label pe-3">Quantité</label>
+                <input type="number" id="quantity" class="form-control" min="0" [value]="product.quantity" style="width: 50px;" disabled>
+              </div>
+            <button class="btn btn-warning" (click)="onAddProduct()" [disabled]="product.inventoryStatus == 'OUTOFSTOCK' || product.quantity <= 0">Acheter maintenant</button>
+          </div>
+        </div>
+    </div>

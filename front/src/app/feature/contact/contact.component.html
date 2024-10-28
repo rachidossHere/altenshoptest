@@ -1,0 +1,46 @@
+<div class="container mt-5 pt-5" [formGroup]="formGroup">
+    <h2 class="text-center text-warning mt-5">Contactez-nous</h2>
+    <form [formGroup]="formGroup" class="bg-light p-4 rounded border border-dark">
+        <div class="row mb-3">
+            <div class="form-group col-md-6">
+                <label for="firstname">Prénom</label>
+                <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Entrez votre prénom" required>
+                <div *ngIf="formGroup.get('firstname')?.touched && formGroup.get('firstname')?.invalid" class="text-danger">
+                    Prénom est requis.
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Nom</label>
+                <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Entrez votre nom" required>
+                <div *ngIf="formGroup.get('lastname')?.touched && formGroup.get('lastname')?.invalid" class="text-danger">
+                    Nom est requis.
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Entrez votre adresse e-mail" required>
+            <div *ngIf="formGroup.get('email')?.touched && formGroup.get('email')?.invalid" class="text-danger">
+                <div *ngIf="formGroup.get('email')?.errors?.['required']">Adresse e-mail valide est requise.</div>
+                <div *ngIf="formGroup.get('email')?.errors?.['email']">Format d'adresse e-mail invalide.</div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="phone">Téléphone</label>
+            <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Entrez votre numéro de téléphone" required>
+            <div *ngIf="formGroup.get('phone')?.touched && formGroup.get('phone')?.invalid" class="text-danger">
+                <div *ngIf="formGroup.get('phone')?.errors?.['required']">Numéro de téléphone est requis.</div>
+                <div *ngIf="formGroup.get('phone')?.errors?.['pattern']">Format de numéro de téléphone invalide.</div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3" formControlName="message" placeholder="Entrez votre message"></textarea>
+            <div *ngIf="formGroup.get('message')?.touched && formGroup.get('message')?.invalid" class="text-danger">
+                Message est requis.
+            </div>
+            <small class="form-text text-muted">{{ formGroup.get('message')?.value | characterCount:300 }}</small>
+        </div>
+        <button type="submit" class="btn btn-warning" [disabled]="formGroup.invalid" (click)="sendMail()">Envoyer</button>
+    </form>
+</div>
